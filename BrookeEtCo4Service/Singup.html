@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <!-- Somehow I got an error, so I comment the title, just uncomment to show -->
+    <!-- <title>Login Form Design | CodeLab</title> -->
+    <link rel="stylesheet" href="style4.css">
+    <!--<script type="text/javascript" src="login.js"></script>-->
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+    <script type="text/javascript">
+        function enregistrer() {
+            var nomClient = $("#txtNom").val();
+            var prenomClient = $("#txtPrenom").val();
+            var typeUserClient = $("#txtTypeUser").val();
+            var courrielClient = $("#txtCourriel").val();
+            var passwordClient = $("#txtPassword").val();
+            
+
+            $.ajax({
+                url: "http://localhost:56408/GestionClient.asmx/createClient",
+                data: {
+                    nom: nomClient,
+                    prenom: prenomClient,
+                    typeUser: typeUserClient,
+                    courriel: courrielClient,
+                    pass: passwordClient                    
+                },
+                method: "post",
+                dataType: "json",
+                success: function (data) {
+                    $("#txtNom").val("");
+                    $("#txtPrenom").val("");
+                    $("#txtTypeUser").val("");
+                    $("#txtCourriel").val("");
+                    $("#txtPassword").val("");                    
+                    alert("Produit enregistré");
+                },
+                error: function (error) {
+                    alert("Erreur " + error);
+                }
+            });
+        }
+    </script>
+
+</head>
+<body>
+    <div id="entete">
+        <h1>Brooke et Co</h1>
+        <p id="txtNom1"></p>
+    </div>
+    <div class="wrapper">
+        <div class="title">
+            Singup Form
+        </div>
+        <form action="#">
+            <div class="field">
+                <input id="txtNom" type="text" required>
+                <label>Nom</label>
+            </div>
+            <div class="field">
+                <input id="txtPrenom" type="text" required>
+                <label>Prenom</label>
+            </div>            
+            <div class="field">
+                <input id="txtTypeUser" type="text" required>
+                <label>Type User</label>
+            </div>
+            <div class="field">
+                <input id="txtCourriel" type="text" required>
+                <label>Courriel</label>
+            </div>
+            <div class="field">
+                <input id="txtPassword" type="text" required>
+                <label>Password</label>
+            </div>
+            
+            <div class="field">
+                <!--<input type="submit" value="Login">-->
+
+                <input type="button" value="submit" onclick="enregistrer();" />
+            </div>
+            <div class="signup-link">
+                Déjà à membre? <a href="http://localhost:56408/Login.html">Login now</a>
+            </div>
+            <div id="message" type="text"></div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style2.css" />
+    <script type="text/javascript" src="jeuxNintendo.js"></script>
+    <title>Jeux Nintendo</title>
+</head>
+<body onload="chargerZoneItem();">
+    <div id="entete">
+        <h1>Brooke et Co</h1>
+        <div id="panier" onclick="afficheFacture();">
+            <img src="panier.png" width="40%"> : <span id="idItem">0</span>
+        </div>
+        <div id="menu">
+            <b><a href="http://localhost:56408/AllProducts.html">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nous contacter</b>
+            <h3>
+                <div id="liste">
+                    <ul>
+                        <li class="dropdown" id="livres">
+                            <a href="#" onclick="itemsList();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Livre&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                            <div class="dropdown-content">
+                                <a href="http://localhost:56408/livresInformatique.html">Informatique</a> <!--onclick="itemsList();"-->
+                                <a href="http://localhost:56408/livreLitterature.html">Litterature</a>
+                                <a href="http://localhost:56408/livreGeographique.html">Geographique</a>
+                            </div>
+                        </li>&#124;
+                        <li class="dropdown" id="film">
+                            <a href="#"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Film&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                            <div class="dropdown-content">
+                                <a href="http://localhost:56408/filmFiction.html">Sciences fictions</a>
+                                <a href="http://localhost:56408/filmDrame.html">Drames</a>
+                                <a href="http://localhost:56408/filmComedie.html">Comédie</a>
+                                <a href="http://localhost:56408/filmAction.html">Action</a>
+                            </div>
+                        </li>&#124;
+                        <li class="dropdown" id="jeuxVideo">
+                            <a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jeux Video &nbsp;&nbsp;&nbsp;&nbsp;</a>
+                            <div class="dropdown-content">
+                                <a href="http://localhost:56408/jeuxPlaystation.html">Playstation</a>
+                                <a href="http://localhost:56408/jeuxXbox.html">Xbox</a>
+                                <a href="http://localhost:56408/jeuxNintendo.html">Nintendo</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </h3>
+            <!--<b>Nous contacter</b>-->
+        </div>
+    </div>
+    <div id="zoneContenuItem">
+
+    </div>
+    <div id="zoneContenuFacture">
+        <table border="1" width="50%" align="center">
+            <thead>
+            <th>Description</th>
+            <th>Quantite</th>
+            <th>Prix unitaire</th>
+            </thead>
+            <tbody id="corpsTableau">
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>Sous total</th>
+                    <th id="idSousTotal">XXX</th>
+                </tr>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>TPS</th>
+                    <th id="idTPS">XXX</th>
+                </tr>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>TVQ</th>
+                    <th id="idTVQ">XXX</th>
+                </tr>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>Total</th>
+                    <th id="idTotal">XXX</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div id="zoneDetail">
+        <div id="petiteEntete">
+            <span id="idFermerDialogue" onclick="fermerDialogue();">Fermer</span>
+        </div>
+        <img id="uneImage" />
+        <div>
+            Description : <span id="uneNom">XXX</span>
+        </div>
+        <div>
+            Prix : <span id="unPrixUnitaire">XXX</span>
+        </div>
+        <div>
+            Detail : <span id="unDetail">XXX</span>
+        </div>
+
+        <div>
+            Qte : <input type="text" id="txtQuantite" value="1" />
+        </div>
+        <div id="unAjout">Ajouter</div>
+    </div>
+</body>
+</html>

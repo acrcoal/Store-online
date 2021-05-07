@@ -1,0 +1,360 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="desigmain.css" />
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8i8h68XD-i6ES1icZFRPwkBWmWNHVmYs">
+    </script>
+
+    <script type="text/javascript" src="javascript.js">
+    </script>
+
+    <title>mainpage</title>
+    <style type="text/css">
+    </style>
+</head>
+<body onload="carrousel();">
+    <div class="entete1" id="entete1">
+        <div>
+            <u><b><i>Brooke et Co.</i></b></u>
+        </div>
+    </div>
+    <div class="entete2" id="entete2">
+        <div id="rechercher">
+            <span id="cherchez2"><input size="65px" type="text" id="cherchez" name="cherchez" maxlength="50" placeholder="Rechercher" /></span>
+        </div>
+        <div id="cbolangue">
+            <select class="langue" name="Cbolangue">
+                <option>En</option>
+                <option>FR</option>
+                <option>Es</option>
+                <option>Ro</option>
+            </select>
+        </div>
+        <div id="panier">
+            <button id="buttonpanier" onclick="commander();">Panier:<span id="idItem">0</span> <img src="panier.png" height="30px" width="auto"></img></button>
+        </div>
+        <div id="logout">
+            <span id="signout"><a href="login.html" style="text-decoration: none; color:black">Sign out</a></span>
+        </div>
+    </div>
+    <div id="menu1">
+        <div id="liste">
+            <ul>
+                <li class="dropdown" id="livres">
+                    <a href="#" onclick="itemsList();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Livre&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                    <div class="dropdown-content">
+                        <a href="#" onclick="itemsList();">Informatique</a> <!--onclick="itemsList();"-->
+                        <a href="#">Litterature</a>
+                        <a href="#">Geographique</a>
+                    </div>
+                </li>&#124;
+                <li class="dropdown" id="film">
+                    <a href="#"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Film&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                    <div class="dropdown-content">
+                        <a href="#">Sciences fictions</a>
+                        <a href="#">Drames</a>
+                        <a href="#">Comédie</a>
+                        <a href="#">Action</a>
+                    </div>
+                </li>&#124;
+                <li class="dropdown" id="jeuxVideo">
+                    <a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jeux Video &nbsp;&nbsp;&nbsp;&nbsp;</a>
+                    <div class="dropdown-content">
+                        <a href="#">Playstation</a>
+                        <a href="#">Xbox</a>
+                        <a href="#">Nintendo</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="main" id="main">
+        <div class="menugauche" id="menugauche">
+            <li class="categorie"> Categories </li><br />
+            <ul>
+                <li class="Livres">Livres </li>
+                <br />
+                <div class="menuLivre">
+                    <li><a href="#" onclick="itemsList();">Informatique</a></li><br />
+                    <li><a href="#">Littérature</a></li><br />
+                    <li><a href="#">Géographie</a></li><br />
+                </div>
+                <li class="Films">Films</li>
+                <br />
+                <div class="menuFilms">
+                    <li> <a href="#">Sciences Fictions</a></li><br />
+                    <li> <a href="#"> Comédie</a></li><br />
+                    <li><a href="#">Drame</a></li><br />
+                    <li><a href="#">Action</a></li><br />
+                </div>
+                <li class="JeuxVideo">Jeux vidéo</li>
+                <br />
+                <div class="menuJeux">
+                    <li><a href="#">Playstation</a></li><br />
+                    <li><a href="#"> Xbox</a></li><br />
+                    <li><a href="#"> Nintendo </a></li><br />
+                    <li><a href="#">Wii U</a></li><br />
+                </div>
+            </ul>
+
+        </div>
+        <div class="publicite" id="publicite">
+            <img src="publicite.png" height="300px" width="850px" />
+        </div>
+        <div class="publicite2" id="publicite2">
+            <img src="nouveau.png" height="225px" width="350px" />
+        </div>
+        <section>
+            <div id="carrousel2">
+                <img id="monImage" src="image1.jpg" alt="">
+            </div>
+        </section>
+    </div>
+
+    <div id="zonepresentitems">
+        <div id="zoneContenuItems" height="auto" width="auto">
+
+            
+            <!--<div class="items" id="item1">
+        <a><img class="imageslivres" id="image1" src="image1.jpg" onclick="DetailsLivre(1);"></a><br />
+        <div class="description">Structured Programming with C++</div>
+        <div class="autor">Kjell Bäckman</div>
+        <div class="prix">$ 29.32</div>
+        <div class="ajouter" onclick="javascript:ajouterItem(1,1);">Ajouter</div>
+    </div>
+    <div class="items" id="item2">
+        <a><img class="imageslivres" id="image2" src="image2.jpg" onclick="DetailsLivre(2);"></a><br />
+        <div class="description">Introduction to Adobe Photoshop</div>
+        <div class="autor">Steve Bark</div>
+        <div class="prix">$ 35.32</div>
+        <div class="ajouter" onclick="javascript:ajouterItem(2,1);">Ajouter</div>
+    </div>
+
+    <div class="items" id="item3">
+        <a><img class="imageslivres" id="image3" src="image3.jpg" onclick="DetailsLivre(3);"></a><br />
+        <div class="description">Database Design and Implementation</div>
+        <div class="autor">Howard Gould</div>
+        <div class="prix">$ 23.99</div>
+        <div class="ajouter" onclick="javascript:ajouterItem(3,1);">Ajouter</div>
+    </div>
+
+    <div class="items" id="item4">
+        <a><img class="imageslivres" id="image4" src="image4.jpg" onclick="DetailsLivre(4);"></a><br />
+        <div class="description">Excel 2010 Introduction: Part I</div>
+        <div class="autor">Stephen Moffat</div>
+        <div class="prix">$ 25.99</div>
+        <div class="ajouter" onclick="javascript:ajouterItem(4,1);">Ajouter</div>
+    </div>
+
+    <div class="items" id="item5">
+        <a><img class="imageslivres" id="image5" src="image5.jpg" onclick="DetailsLivre(5);"></a><br />
+        <div class="description">Java Data Structures and Algorithms</div>
+        <div class="autor">Christopher Fox</div>
+        <div class="prix">$ 20.79</div>
+        <div class="ajouter" onclick="javascript:ajouterItem(5,1);">Ajouter</div>
+    </div>
+
+    <div class="items" id="item6">
+        <a><img class="imageslivres" id="image6" src="image6.jpg" onclick="DetailsLivre(6);"></a><br />
+        <div class="description">Understanding Computer Simulation</div>
+        <div class="autor">Roger McHaney</div>
+        <div class="prix">$ 19.69</div>
+        <div class="ajouter" onclick="javascript:ajouterItem(6,1);">Ajouter</div>
+    </div>
+
+    <div class="items" id="item7">
+        <a><img class="imageslivres" id="image7" src="image7.jpg" onclick="DetailsLivre(7);"></a><br />
+        <div class="description">Object Oriented Programming using C#</div>
+        <div class="autor">Simon Kendal</div>
+        <div class="prix">$ 29.69</div>
+        <div class="ajouter" onclick="javascript:ajouterItem(7,1);">Ajouter</div>
+    </div>
+
+    <div class="items" id="item8">
+        <a><img class="imageslivres" id="image8" src="image8.jpg" onclick="DetailsLivre(8);"></a><br />
+        <div class="description">Adobe Photoshop for Intermediate Users</div>
+        <div class="autor">Steve Bark</div>
+        <div class="prix">$ 18.89</div>
+        <div class="ajouter" onclick="javascript:ajouterItem(8,1);">Ajouter</div>
+    </div>
+
+
+    <div class="items" id="item9">
+        <a><img class="imageslivres" id="image9" src="image9.jpg" onclick="DetailsLivre(9);"></a><br />
+        <div class="description">Excel 2016 Advanced</div>
+        <div class="autor">Shelley Fishel </div>
+        <div class="prix">$ 23.56</div>
+        <div class="ajouter" onclick="javascript:ajouterItem(9,1);">Ajouter</div>
+    </div>
+
+    <div class="items" id="item10">
+        <a><img class="imageslivres" id="image10" src="image10.jpg" onclick="DetailsLivre(10);"></a><br />
+        <div class="description">Systems Analysis and Design</div>
+        <div class="autor">Howard Gould</div>
+        <div class="prix">$ 23.56</div>
+        <div class="ajouter" onclick="javascript:ajouterItem(10,1);">Ajouter</div>
+    </div>
+
+    <div class="items" id="item11">
+        <a><img class="imageslivres" id="image11" src="image11.jpg" onclick="DetailsLivre(11);"></a><br />
+        <div class="description">Introduction to E-Commerce</div>
+        <div class="autor">Prof. Dr. Martin Kütz</div>
+        <div class="prix">$ 26.75</div>
+        <div class="ajouter" onclick="javascript:ajouterItem(11,1);">Ajouter</div>
+    </div>
+
+    <div class="items" id="item12">
+        <a><img class="imageslivres" id="image12" src="image12.jpg" onclick="DetailsLivre(12);"></a><br />
+        <div class="description">Java 1: Basic syntax and semantics</div>
+        <div class="autor">Poul Klausen</div>
+        <div class="prix">$ 27.65</div>
+        <div class="ajouter" onclick="javascript:ajouterItem(12,1);">Ajouter</div>
+    </div>
+
+    <div class="items" id="item13">
+        <a><img class="imageslivres" id="image13" src="image13.jpg" onclick="DetailsLivre(13);"></a><br />
+        <div class="description">Object Oriented Programming using Java</div>
+        <div class="autor">Simon Kendal </div>
+        <div class="prix">$ 23.33</div>
+        <div class="ajouter" onclick="javascript:ajouterItem(13,1);">Ajouter</div>
+    </div>
+
+    <div class="items" id="item14">
+        <a><img class="imageslivres" id="image14" src="image14.jpg" onclick="DetailsLivre(14);"></a><br />
+        <div class="description">C# 1</div>
+        <div class="autor">Poul Klausen</div>
+        <div class="prix">$ 21.72</div>
+        <div class="ajouter" onclick="javascript:ajouterItem(14,1);">Ajouter</div>
+    </div>
+
+    <div class="items" id="item15">
+        <a><img class="imageslivres" id="image15" src="image15.jpg" onclick="DetailsLivre(15);"></a><br />
+        <div class="description">C Programming in Linux</div>
+        <div class="autor">David Haskins</div>
+        <div class="prix">$ 24.43</div>
+        <div class="ajouter" onclick="javascript:ajouterItem(15,1);">Ajouter</div>
+    </div>
+
+    <div class="items" id="item16">
+        <a><img class="imageslivres" id="image16" src="image16.jpg" onclick="DetailsLivre(16);"></a><br />
+        <div class="description">Excel 2016 Introduction</div>
+        <div class="autor">Stephen Moffat</div>
+        <div class="prix">$ 29.32</div>
+        <div class="ajouter" onclick="javascript:ajouterItem(16,1);">Ajouter</div>
+    </div>
+
+    <div class="items" id="item17">
+        <a><img class="imageslivres" id="image17" src="image17.jpg" onclick="DetailsLivre(17)"></a><br />
+        <div class="description">Introduction to Web Services with Java</div>
+        <div class="autor">Kiet T. Tran, PhD</div>
+        <div class="prix">$ 24.92</div>
+        <div class="ajouter" onclick="javascript:ajouterItem(17,1);">Ajouter</div>
+    </div>
+
+    <div class="items" id="item18">
+        <a><img class="imageslivres" id="image18" src="image18.jpg" onclick="DetailsLivre(18);"></a><br />
+        <div class="description">Microsoft Office Excel 2007</div>
+        <div class="autor">Torben Lage Frandsen</div>
+        <div class="prix">$ 30.89</div>
+        <div class="ajouter" onclick="javascript:ajouterItem(18,1);">Ajouter</div>
+    </div>
+
+    <div class="items" id="item19">
+        <a><img class="imageslivres" id="image19" src="image19.jpg" onclick="DetailsLivre(19);"></a><br />
+        <div class="description">Philosophy of Artificial Intelligence</div>
+        <div class="autor">David Cycleback</div>
+        <div class="prix">$ 26.74</div>
+        <div class="ajouter" onclick="javascript:ajouterItem(19,1);">Ajouter</div>
+    </div>
+
+    <div class="items" id="item20">
+        <a><img class="imageslivres" id="image20" src="image20.jpg" onclick="DetailsLivre(20);"></a><br />
+        <div class="description">iWork - Numbers</div>
+        <div class="autor">Mark Wood</div>
+        <div class="prix">$ 21.99</div>
+        <div class="ajouter" onclick="javascript:ajouterItem(20,1);">Ajouter</div>
+    </div>-->
+
+        </div>
+    </div>
+
+
+    <div class="details" id="zoneDetailsLivre" height="auto" width="auto">
+        <img id="imageDetail" src="" />
+        <div id="autor"></div><br />
+        <div id="prix"></div>
+        <div id="quantite">
+            Quantite: <input type="number" id="quantitePanier" size="5px" value="1" min="1" max="10" />
+        </div><br /><br />
+        <div id="button">
+            <button id="addItems" onclick="ajouterItems();"><img src="panier.png" width="20%" height="80%" />&nbsp;Ajouter au panier</button>
+        </div>
+        <div id="description"></div>
+        <div id="details"></div>
+
+    </div>
+
+    <div id="mapZone">
+        <div id="map"></div>
+
+        <div id="address">
+            <h2>Contact</h2>
+            <p>Adresse: 3035, boulevard Le Carrefour,Laval,H7T 1C8</p>
+            <p>Tel:450-681-3032</p>
+            <p>Heures d'ouverture:</p>
+            <p>L-V: 10 a 21h</p>
+            <button id="calculChemin" onclick="initializeMap();">Calculer chemin</button>
+        </div>
+    </div>
+    <div id="affichajePanier">
+        <div id="descriptionPanier">
+            <div id="panierAntet">
+                <div id="paniergauche">Article(s) dans panier</div>
+                <div id="panierdroit">
+                    <div>Quantite</div>
+                    <div>Prix</div>
+                </div>
+            </div>
+            <div id="contenuPanier"></div>
+            <div id="CalculPanier">
+                <div>Sous total:</div>
+                <div id="PrixTotal"></div>
+
+            </div>
+            <div id="tvq">
+                <div>TVQ:</div>
+                <div id="totalTVQ"></div>
+            </div>
+            <div id="tps">
+                <div>TPS:</div>
+                <div id="totalTPS"></div>
+            </div>
+            <div id="totalapayer">
+                <div>Total a payer:</div>
+                <div id="TotalPayer"></div>
+            </div>
+        </div>
+        <div id="commander">
+            <div id="pretcommander">
+                <div>Pret a commander ?</div>
+            </div>
+            <div>
+                <button id="passer">Passer la commande</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <a>Copyright © 2020 &nbsp;</a>
+        <a id="idhome" href="login.html">&nbsp;Home&nbsp;</a>|
+        <a id="idProducts" href="http://www.link.com/">&nbsp;Our Products&nbsp;</a>|
+        <a href="#" onclick="mapDisplay();">&nbsp;About our company&nbsp;</a>|
+        <a id="idRegister" href="register.html">&nbsp;Register&nbsp;</a>
+
+    </footer>
+
+</body>
+</html>

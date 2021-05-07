@@ -1,0 +1,789 @@
+﻿.entete1 {
+    width: auto;
+    background-color: #e0cd80;
+    height: 50px;
+    margin-left: 0px;
+    margin-top: 15px;
+    text-align: left;
+    font-size: 5em;
+    color: #cf0c10;
+}
+
+.entete2 {
+    width: auto;
+    background-color: #806b19;
+    height: 50px;
+    margin: auto;
+}
+
+#rechercher {
+    float: left;
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+    width: auto;
+    margin-left: 500px;
+}
+
+#cbolangue {
+    position: relative;
+    float: right;
+    margin-right: 300px;
+    margin-top: 10px;
+    display: inline-block;
+    padding: 1px;
+}
+
+#panier {
+    position: absolute;
+    float: right;
+    display: inherit;
+    margin-left: 1100px;
+    margin-top: 10px;
+    color: white;
+    padding-left: 5px;
+}
+
+#buttonpanier {
+    background-color: #806b19;
+    border: none;
+}
+
+#logout {
+    position: absolute;
+    float: right;
+    display: inherit;
+    height: 10px;
+    font-size: 15px;
+    margin-right: 5px;
+    color: white;
+    margin-left: 1200px;
+    margin-top: 14px;
+}
+
+#signout {
+    text-decoration: none;
+    color: black;
+}
+
+#menu1 {
+    background-color: #806b19;
+}
+
+#liste {
+    width: 80%;
+    text-align: center;
+    list-style-type: none;
+    margin: auto;
+    height: 42px;
+    color: #cf0c10;
+    background-color: white;
+    font-size: 35px;
+    font-weight: bold;
+    padding: 7px;
+    border: 2px solid black;
+}
+
+li:hover {
+    color: #cf0c10;
+    background-color: yellow;
+}
+
+ul {
+    display: auto;
+    padding-top: 4px;
+    position: relative;
+    list-style-type: none;
+    margin: auto;
+}
+
+li a {
+    color: #cf0c10;
+    display: inline;
+    text-decoration: none;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+}
+
+    .dropdown-content a {
+        color: #cf0c10;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        background-color: white;
+    }
+
+        .dropdown-content a:hover {
+            background-color: yellow;
+        }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: auto;
+    background-color: #806b19;
+}
+
+.menugauche {
+    width: 15%;
+    z-index: 1;
+    top: 32%;
+    background-color: gray;
+    margin-top: 5px;
+    border: 1px solid black;
+    overflow-x: hidden;
+    padding-top: .1%;
+    margin-left: 15px;
+    list-style-type: none;
+}
+
+ul.menugauche {
+    display: inline-block;
+    padding-top: 4px;
+    position: relative;
+    margin: auto;
+}
+
+li.categorie, li.Films, li.Livres, li.JeuxVideo {
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    list-style-type: none;
+}
+
+.publicite {
+    position: absolute;
+    margin-left: 275px;
+    width: 550px;
+    margin-top: 10px;
+}
+
+.publicite2 {
+    position: absolute;
+    margin-left: 512px;
+    margin-top: 325px;
+}
+
+#carrousel2 {
+    margin: auto;
+    padding-top: 10px;
+    width: 25%;
+    height: 25%;
+}
+
+#monImage2 {
+    margin: auto;
+    width: 55%;
+    height: 55%;
+}
+
+.details {
+    background-color: #806b19;
+}
+
+#zonepresentitems {
+    display: none;
+    height: auto;
+    width: auto;
+    margin-left: 0;
+}
+
+#zoneContenuItems {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    background-color: #806b19;
+    height: auto;
+    width: auto;
+    margin: 0;
+    padding: 5px;
+    text-align: center;
+}
+
+#image {
+    border-style: solid;
+    border-color: red;
+}
+
+.imageslivres {
+    border: 1px red;
+    align-items: center;
+    margin: auto;
+    padding-top: 50px;
+    width: 55%;
+    height: 70%;
+    padding: 1px;
+    text-align: center;
+}
+
+.ajouter {
+    margin: auto;
+    background: red;
+    border-color: 2px solid black;
+    width: 30%;
+    heigth: 5px;
+}
+
+#mapZone {
+    display: none;
+    background-color: #806b19;
+    margin: auto;
+    width: auto;
+    height: 500px;
+}
+
+#map {
+    margin: auto;
+    border: 3px;
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    width: 35%;
+    height: 60%;
+    border-color: red;
+    frame-border: 0;
+    style-border: 0;
+}
+
+#address {
+    right: 100px;
+    padding: 10px;
+    margin-left: 150px;
+}
+
+#zoneDetailsLivre {
+    position: relative;
+    display: none;
+    width: auto;
+    height: auto;
+    margin: auto;
+    padding: 40px;
+}
+
+#autor {
+    font-weight: bold;
+    font: 18px Arial;
+    position: absolute;
+    margin: auto;
+    left: 40%;
+    top: 20%;
+}
+
+#imageDetail {
+    padding: 1px;
+    position: relative;
+    margin: auto;
+    left: 15%;
+    top: 30%;
+    width: 20%;
+    height: 55%;
+    border-style: solid;
+    border-color: red;
+}
+
+#description {
+    position: absolute;
+    margin: auto;
+    font: 18px Arial;
+    font-weight: bold;
+    top: 45%;
+    margin: auto;
+    left: 40%;
+    display: inline;
+    width: auto;
+    height: auto;
+}
+
+#details {
+    position: absolute;
+    margin: auto;
+    left: 18%;
+    top: 85%;
+    width: 78%;
+    height: 20%;
+    font: 18px Arial;
+    font-weight: bold;
+}
+
+#prix {
+    position: absolute;
+    left: 40%;
+    top: 27%;
+    font: 18px Arial;
+    color: blue;
+    font-weight: bold;
+}
+
+#quantite {
+    position: absolute;
+    padding: 3px;
+    display: inline;
+    margin: auto;
+    left: 65%;
+    top: 30%;
+    width: auto;
+    font: 20px Arial;
+    font-weight: bold;
+}
+
+#addItems {
+    position: absolute;
+    background-color: red;
+    color: white;
+    margin: auto;
+    width: 25%;
+    height: 10%;
+    padding-bottom: 2px;
+    margin-bottom: 2px;
+    padding-top: 5px;
+    margin-top: 2px;
+    text-align: center;
+    border: 2px solid black;
+    top: 40%;
+    left: 65%;
+    font-size: 20px;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+#affichajePanier {
+    display: none;
+    justify-content: flex-start;
+    background-color: #806b19;
+    margin: auto;
+    padding: 20px;
+    min-height: 600px;
+    width: auto;
+}
+
+#descriptionPanier {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+}
+
+#panierAntet {
+    display: flex;
+    justify-content: space-between;
+    background-color: #e0cd80;
+    padding: 10px;
+    width: auto;
+    font-weight: bold;
+}
+
+#paniergauche {
+    margin: auto;
+}
+
+#panierdroit {
+    display: flex;
+    width: 20%;
+    justify-content: space-between;
+}
+
+#itemAjoute {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #e0cd80;
+    padding: 10px;
+}
+
+#PrixTotal {
+    margin-left: 5px;
+    margin-right: 2px;
+    font-family: Arial;
+}
+
+#pretcommander {
+    display: flex;
+    justify-content: space-between;
+    width: 280px;
+    background-color: #e0cd80;
+    font-family: Arial;
+    font-weight: bold;
+    margin-left: 15%;
+    padding: 10px;
+}
+
+#passer {
+    margin-left: 15%;
+    font-family: Arial;
+    font-weight: bold;
+    background-color: red;
+    border: 1px solid black;
+    padding: 5px;
+    height: 35px;
+    margin-top: 2%;
+}
+
+.itemAjoute {
+    display: flex;
+    padding: 5px 0px 5px 0px;
+    border-bottom: 1px solid;
+}
+
+.delete {
+    background-color: red;
+    color: black;
+    border: 2px solid;
+    width: 90px;
+    padding: 5px;
+    margin-top: 3px;
+}
+
+.imagePanier {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 88px;
+    height: 95px;
+}
+
+
+.itemContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 350px;
+    padding-left: 10px;
+}
+
+.quantitePanier {
+    display: flex;
+    justify-content: flex;
+    width: 50px;
+}
+
+#CalculPanier, #tvq, #tps, #totalapayer {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #e0cd80;
+    padding: 5px;
+    font-family: Arial;
+    height: 20px;
+}
+
+#PrixTotal, #totalTVQ, #totalTPS, #TotalPayer {
+    display: flex;
+    justify-content: flex-end;
+    width: auto;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+footer {
+    width: auto%;
+    padding-top: 75px;
+    text-decoration: underline;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    font-size: 20px;
+    color: blue;
+    background-color: #806b19;
+    height: auto;
+    padding-bottom: 35px;
+}
+
+@media only screen and (max-width: 500px) {
+    .entete1 {
+        width: auto;
+        height: 35px;
+        font-size: 3em;
+    }
+
+    .entete2 {
+        height: 43px;
+    }
+
+    #rechercher {
+        display: none;
+    }
+
+    #cbolangue {
+        margin-right: 25%;
+    }
+
+    #panier {
+        margin-left: 75%;
+        padding-left: 3px;
+        padding-bottom: 5px;
+    }
+
+    #logout {
+        height: 10px;
+        margin-right: 3%;
+        font-size: 12px;
+        margin-left: 86%;
+        margin-top: 2%;
+    }
+
+    .menugauche {
+        display: none;
+    }
+
+    #liste {
+        width: 80%;
+        text-align: center;
+        list-style-type: none;
+        margin: auto;
+        height: 25px;
+        font-size: 12px;
+        padding: 2px;
+    }
+
+    .publicite {
+        position: relative;
+        margin: auto;
+        margin-left: 20%;
+        padding: 5px;
+    }
+
+        .publicite img {
+            width: 250px;
+            height: 125px;
+        }
+
+    .publicite2 {
+        position: relative;
+        margin: auto;
+        margin-left: 33%;
+        padding: 5px;
+    }
+
+        .publicite2 img {
+            width: 100px;
+            height: 80px;
+        }
+
+    #carrousel2 {
+        position: relative;
+        margin-left: 25%;
+        padding: 5px;
+    }
+
+        #carrousel2 img {
+            width: 175px;
+            height: 250px;
+        }
+
+    #zoneContenuItems {
+        display: grid;
+        padding: 6px;
+        grid-template-columns: 25% 25% 25%;
+        width: 98%;
+        height: 98%;
+        margin-left: 40px;
+        padding-left: 20px;
+    }
+
+    .imageslivres {
+        padding: 2px;
+        width: 80%;
+        height: 60%;
+    }
+
+    #zonepresentitems {
+        background-color: #806b19;
+        margin: auto;
+    }
+
+    .items {
+        width: auto;
+        height: 75%;
+    }
+
+    .ajouter {
+        padding: 5px;
+        width: 45%;
+    }
+
+    #zoneDetailsLivre {
+        padding: 5px;
+    }
+
+    #autor {
+        font-weight: bold;
+        font: 18px Arial;
+        position: absolute;
+        margin: auto;
+        left: 42%;
+        top: 20%;
+    }
+
+    #imageDetail {
+        left: 5%;
+        top: 30%;
+        width: 33%;
+        height: 68%;
+    }
+
+    #description {
+        font: 14px Arial;
+        font-weight: bold;
+        top: 45%;
+        margin: auto;
+        left: 42%;
+    }
+
+    #details {
+        position: absolute;
+        left: 10%;
+        top: 94%;
+        width: 88%;
+        height: 80%;
+        font: 14px Arial;
+        min-height: 350px;
+    }
+
+    #prix {
+        left: 40%;
+        top: 28%;
+    }
+
+    #quantite {
+        position: relative;
+        padding: 10px;
+        display: inline;
+        margin: auto;
+        left: 5%;
+        top: 30%;
+        width: auto;
+        font: 20px Arial;
+        font-weight: bold;
+    }
+
+    #addItems {
+        position: absolute;
+        display: inline;
+        width: 45%;
+        height: 15%;
+        top: 76%;
+        left: 44%;
+        font-size: 14px;
+    }
+
+    #descriptionPanier {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #panierAntet {
+        display: flex;
+        justify-content: space-between;
+        background-color: #e0cd80;
+        padding: 5px;
+        width: auto;
+    }
+
+    #panierdroit {
+        display: flex;
+        width: 35%;
+        justify-content: space-between;
+    }
+
+    .itemAjoute {
+        display: flex;
+        padding: 5px 0px 5px 0px;
+        border-bottom: 1px solid;
+    }
+
+    .delete {
+        background-color: red;
+        color: black;
+        border: 2px solid;
+        width: 90px;
+        padding: 5px;
+        margin-top: 3px;
+    }
+
+    .imagePanier {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 88px;
+        height: 95px;
+    }
+
+
+    .itemContent {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: auto;
+        padding-left: 5px;
+    }
+
+    .quantitePanier {
+        display: flex;
+        justify-content: flex;
+        width: 50px;
+    }
+
+    #CalculPanier, #tvq, #tps, #totalapayer {
+        display: flex;
+        justify-content: flex-end;
+        background-color: #e0cd80;
+        padding: 5px;
+    }
+
+    #PrixTotal, #totalTVQ, #totalTPS, #TotalPayer {
+        display: flex;
+        justify-content: flex-end;
+        width: auto;
+    }
+
+    #pretcommander {
+        display: flex;
+        width: 110px;
+        padding: 10px;
+        height: 50px;
+    }
+
+    #passer {
+        position: absolute;
+        display: flex;
+        left: 8%;
+        top: 42%;
+        padding: 10px;
+        width: 110px;
+        padding: 10px;
+        height: 42px;
+    }
+
+    #commander {
+        display: flex;
+        position: relative;
+    }
+
+    #mapZone {
+        display: none;
+        background-color: #806b19;
+        flex-wrap: wrap;
+        margin: auto;
+        width: auto;
+        height: 600px;
+    }
+
+    #map {
+        width: 75%;
+        height: 350px;
+        margin: auto;
+        top: 70%;
+        left: 15%;
+        frame-border: 0;
+        style-border: 0;
+    }
+}

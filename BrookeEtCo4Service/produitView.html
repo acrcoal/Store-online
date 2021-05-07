@@ -1,0 +1,413 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <style type="text/css">
+        #zoneModificationProduit, #zoneSuppressionProduit, #zoneListeProduit {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+    <script type="text/javascript">
+		function creerProduit() {
+			$("#zoneModificationProduit").hide();
+			$("#zoneSuppressionProduit").hide();
+			$("#zoneListeProduit").hide();
+			$("#zoneNouveauProduit").show();
+		}
+		function modifierProduit() {
+			$("#zoneSuppressionProduit").hide();
+			$("#zoneListeProduit").hide();
+			$("#zoneNouveauProduit").hide();
+			$("#zoneModificationProduit").show();
+		}
+		function supprimerProduit() {
+			$("#zoneModificationProduit").hide();
+			$("#zoneListeProduit").hide();
+			$("#zoneNouveauProduit").hide();
+			$("#zoneSuppressionProduit").show();
+		}
+		function listerProduit() {
+			$("#zoneModificationProduit").hide();
+			$("#zoneSuppressionProduit").hide();
+			$("#zoneNouveauProduit").hide();
+			$("#zoneListeProduit").show();
+			var noeudTBody = $("#idCorpsTableau");
+			$.ajax({
+                url: "http://localhost:56408/GestionStockProduit4.asmx/getProducts",
+				method: "post",
+				dataType: "json",
+				success: function (data) {
+                    $.each(data, function (index, produit) {
+                        var isbn = produit.isbn;
+                        var auteur = produit.auteur;
+                        var duree = produit.duree;
+                        var plateforme = produit.plateforme;
+                        var categorie = produit.categorie;
+                        var id = produit.id;
+						var nom = produit.nom;
+                        var quantite = produit.quantite;
+                        var prixUnitaire = produit.prixUnitaire;
+                        var seuilQuantite = produit.seuilQuantite;
+						var emplacement = produit.emplacement;
+                        var image = produit.image;
+
+
+
+						var noeudTr = $("<tr></tr>");
+						var noeudTd1 = $("<td></td>");
+						$(noeudTd1).text(id);
+						$(noeudTr).append(noeudTd1);
+
+						var noeudTd2 = $("<td></td>");
+						$(noeudTd2).text(nom);
+						$(noeudTr).append(noeudTd2);
+
+						var noeudTd3 = $("<td></td>");
+                        $(noeudTd3).text(quantite);
+                        $(noeudTr).append(noeudTd3);
+
+                        var noeudTd4 = $("<td></td>");
+                        $(noeudTd4).text(prixUnitaire);
+                        $(noeudTr).append(noeudTd4);
+
+                        var noeudTd5 = $("<td></td>");
+                        $(noeudTd5).text(seuilQuantite);
+						$(noeudTr).append(noeudTd5);
+
+                        var noeudTd6 = $("<td></td>");
+                        $(noeudTd6).text(emplacement);
+						$(noeudTr).append(noeudTd6);
+
+                        var noeudTd7 = $("<td></td>");
+                        var noeudTd71 = $("<img/>");
+                        $(noeudTd71).attr({ src: image, width: "50%" });
+                        $(noeudTd7).append(noeudTd71);
+                        $(noeudTr).append(noeudTd7);
+
+                        var noeudTd8 = $("<td></td>");
+                        $(noeudTd8).text(isbn);
+                        $(noeudTr).append(noeudTd8);
+
+                        var noeudTd9 = $("<td></td>");
+                        $(noeudTd9).text(auteur);
+                        $(noeudTr).append(noeudTd9);
+
+                        var noeudTd10 = $("<td></td>");
+                        $(noeudTd10).text(duree);
+                        $(noeudTr).append(noeudTd10);
+
+                        var noeudTd11 = $("<td></td>");
+                        $(noeudTd11).text(plateforme);
+                        $(noeudTr).append(noeudTd11);
+
+                        var noeudTd12 = $("<td></td>");
+                        $(noeudTd12).text(categorie);
+                        $(noeudTr).append(noeudTd12);
+
+						$(noeudTBody).append(noeudTr);
+					});
+				},
+				error: function (error) {
+					alert("Erreur " + error);
+				}
+			});
+		}
+
+        function enregistrer() {
+			var nomProduit = $("#txtNomN").val();
+            var quantiteProduit = $("#txtQuantiteN").val();
+            var prixUnitaireProduit = parseFloat($("#txtPrixUnitaireN").val());
+            var seuilQuantiteProduit = parseInt($("#txtSeuilQuantiteN").val());
+            var emplacementProduit = $("#txtEmplacementN").val();
+            var imageProduit = $("#txtImageN").val();
+
+			$.ajax({
+                url: "http://localhost:56408/GestionStockProduit4.asmx/createProduct",
+				data: {
+					nom: nomProduit,
+                    quantite: quantiteProduit,
+                    prixUnitaire: prixUnitaireProduit,
+                    seuilQuantite: seuilQuantiteProduit,
+                    emplacement: emplacementProduit,
+					image : imageProduit
+				},
+				method: "post",
+				dataType: "json",
+				success: function (data) {
+                    $("#txtNomN").val("");
+                    $("#txtQuantiteN").val("");
+					$("#txtPrixUnitaireN").val("");
+                    $("#txtSeuilQuantiteN").val("");
+                    $("#txtEmplacementN").val("");
+                    $("#txtImageN").val("");
+					alert("Produit enregistré");
+				},
+				error: function (error) {
+					alert("Erreur " + error);
+				}
+			});
+		}
+
+		function rechercherModification() {
+			var idProduit = $("#txtIdM").val()
+			$.ajax({
+                url: "http://localhost:56408/GestionStockProduit4.asmx/getProduct",
+				data: {
+					id: idProduit
+				},
+				method: "post",
+				dataType: "json",
+				success: function (data) {
+					$("#txtNomM").val(data.nom);
+                    $("#txtQuantiteM").val(data.quantite);
+					$("#txtPrixUnitaireM").val(data.prixUnitaire);
+                    $("#txtSeuilQuantiteM").val(data.seuilQuantite);
+                    $("#txtEmplacementM").val(data.emplacement);
+                    $("#txtImageM").val(data.image);
+				},
+				error: function (error) {
+					alert("Erreur" + error);
+				}
+			});
+		}
+
+		function modifier() {
+			var idProduit = $("#txtIdM").val();
+			var nomProduit = $("#txtNomM").val();
+            var quantiteProduit = parseInt($("#txtQuantiteM").val());
+			var prixUnitaireProduit = parseFloat($("#txtPrixUnitaireM").val());
+            var seuilQuantiteProduit = parseInt($("#txtSeuilQuantiteM").val());
+            var emplacementProduit = $("#txtEmplacementM").val();
+            var imageProduit = $("#txtImageM").val();
+
+			$.ajax({
+                url: "http://localhost:56408/GestionStockProduit4.asmx/updateProduct",
+				data: {
+					id: idProduit,
+                    nom: nomProduit,
+                    quantite: quantiteProduit,
+					prixUnitaire: prixUnitaireProduit,
+                    seuilQuantite: seuilQuantiteProduit,
+                    emplacement: emplacementProduit,
+                    image: imageProduit
+				},
+				method: "post",
+				dataType: "json",
+				success: function (data) {
+					$("#txtIdM").val("");
+					$("#txtNomM").val("");
+                    $("#txtQuantiteM").val("");
+					$("#txtPrixUnitaireM").val("");
+                    $("#txtSeuilQuantiteM").val("");
+                    $("#txtEmplacementM").val("");
+                    $("#txtImageM").val("");
+					alert("Produit modifié");
+				},
+				error: function (error) {
+					alert("Erreur " + error);
+				}
+			});
+		}
+
+        function rechercher() {
+            var idProduit = $("#txtIdS").val()
+			$.ajax({
+                url: "http://localhost:56408/GestionStockProduit4.asmx/getProduct",
+				data: {
+					id: idProduit
+				},
+				method: "post",
+				dataType: "json",
+				success: function (data) {
+                    $("#txtNomS").val(data.nom);
+                    $("#txtQuantiteS").val(data.quantite);
+					$("#txtPrixUnitaireS").val(data.prixUnitaire);
+                    $("#txtSeuilQuantiteS").val(data.seuilQuantite);
+                    $("#txtEmplacementS").val(data.emplacement);
+                    $("#txtImageS").val(data.image);
+				},
+				error: function (error) {
+					alert("Erreur " + error);
+				}
+			});
+		}
+
+		function supprimer() {
+			var idProduit = $("#txtIdS").val();
+			if (confirm("Êtes-vous sûr de vouloir supprimer le produit de code " + idProduit)) {
+				$.ajax({
+                    url: "http://localhost:56408/GestionStockProduit4.asmx/deleteProduct",
+					data: {
+						id: idProduit
+					},
+					method: "post",
+					dataType: "json",
+					success: function (data) {
+						$("#txtNomS").val("");
+                        $("#txtQuantiteS").val("");
+						$("#txtPrixUnitarieS").val("");
+                        $("#txtSeuilQuantiteS").val("");
+                        $("#txtEmplacementS").val("");
+                        $("#txtImageS").val("");
+						alert("Confirmation : " + data);
+					},
+					error: function (error) {
+						alert("Erreur " + error);
+					}
+				});
+			} else {
+				alert("Suppression annulée");
+			}
+
+		}
+
+
+    </script>
+    <title>Exercice 1</title>
+</head>
+<body>
+    <p>
+        <input type="button" value="Nouveau Produit" onclick="creerProduit();" />
+        <input type="button" value="Modification de Produit" onclick="modifierProduit();" />
+        <input type="button" value="Suppression de Produit" onclick="supprimerProduit();" />
+        <input type="button" value="Liste Produit" onclick="listerProduit();" />
+    </p>
+    <div id="zoneNouveauProduit">
+        <form>
+            <h1>Nouveau produit</h1>
+            <p>
+                <label>Nom</label>
+                <input id="txtNomN" type="text" />
+            </p>
+            <p>
+                <label>Quantite</label>
+                <input id="txtQuantiteN" type="text" />
+            </p>
+            <p>
+                <label>Prix Unitaire</label>
+                <input id="txtPrixUnitaireN" type="text" />
+            </p>
+
+            <p>
+                <label>Seuil Quantite</label>
+                <input id="txtSeuilQuantiteN" type="text" />
+            </p>
+            <p>
+                <label>Emplacement</label>
+                <input id="txtEmplacementN" type="text" />
+            </p>
+            <p>
+                <label>Image</label>
+                <input id="txtImageN" type="text" />
+            </p>
+            <p>
+                <input type="button" value="Enregistrer" onclick="enregistrer();" />
+            </p>
+        </form>
+    </div>
+    <div id="zoneModificationProduit">
+        <form>
+            <h1>Modification de produit</h1>
+            <p>
+                <label>ID du produit</label>
+                <input id="txtIdM" type="text" />
+                <input type="button" value="Rechercher" onclick="rechercherModification();" />
+            </p>
+            <fieldset>
+                <legend>Modification souhaitée</legend>
+                <p>
+                    <label>Nom</label>
+                    <input id="txtNomM" type="text" />
+                </p>
+                <p>
+                    <label>Quantite</label>
+                    <input id="txtQuantiteM" type="text" />
+                </p>
+                <p>
+                    <label>Prix Unitaire</label>
+                    <input id="txtPrixUnitaireM" type="text" />
+                </p>
+
+                <p>
+                    <label>Seuil Quantite</label>
+                    <input id="txtSeuilQuantiteM" type="text" />
+                </p>
+                <p>
+                    <label>Emplacement</label>
+                    <input id="txtEmplacementM" type="text" />
+                </p>
+                <p>
+                    <label>Image</label>
+                    <input id="txtImageM" type="text" />
+                </p>
+                <p>
+                    <input type="button" value="Modifier" onclick="modifier();" />
+                </p>
+            </fieldset>
+        </form>
+    </div>
+    <div id="zoneSuppressionProduit">
+        <form>
+            <h1>Suppression de produit</h1>
+            <p>
+                <label>ID du produit</label>
+                <input id="txtIdS" type="text" />
+                <input type="button" value="Rechercher" onclick="rechercher();" />
+            </p>
+            <fieldset>
+                <legend>Produit à supprimer</legend>
+                <p>
+                    <label>Nom</label>
+                    <input id="txtNomS" type="text" disabled="disabled" />
+                </p>
+                <p>
+                    <label>Quantite</label>
+                    <input id="txtQuantiteS" type="text" disabled="disabled" />
+                </p>
+                <p>
+                    <label>Prix Unitaire</label>
+                    <input id="txtPrixUnitaireS" type="text" disabled="disabled" />
+                </p>
+                <p>
+                    <label>Seuil Quantite</label>
+                    <input id="txtSeuilQuantiteS" type="text" disabled="disabled" />
+                </p>
+                <p>
+                    <label>Emplacement</label>
+                    <input id="txtEmplacementS" type="text" disabled="disabled" />
+                </p>
+                <p>
+                    <label>Image</label>
+                    <input id="txtImageS" type="text" disabled="disabled" />
+                </p>
+                <p>
+                    <input type="button" value="Supprimer" onclick="supprimer();" />
+                </p>
+            </fieldset>
+        </form>
+    </div>
+    <div id="zoneListeProduit">
+        <h1>Liste de produit</h1>
+        <table border="1" width="80%">
+            <thead>
+            <th>IdProduit</th>
+            <th>Description</th>
+            <th>QuantiteEnStock</th>
+            <th>PrixUnitaire</th>
+            <th>SeuilQuantite</th>
+            <th>Emplacement</th>
+            <th>Image</th>
+            <th>ISBN</th>
+            <th>Auteur</th>
+            <th>Duree</th>
+            <th>Plateforme</th>
+            <th>Categorie</th>
+            </thead>
+            <tbody id="idCorpsTableau">
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
